@@ -9,8 +9,7 @@ class Solution {
             int after = s.length();
             answer[1] += before - after;
     
-            long length = after;
-            s = Long.toBinaryString(length);
+            s = Integer.toBinaryString(after);
         }
         
         return answer;
