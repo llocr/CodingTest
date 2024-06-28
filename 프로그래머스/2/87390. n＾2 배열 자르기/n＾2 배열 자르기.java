@@ -6,7 +6,7 @@ class Solution {
             int row = (int)((i + left) / n) + 1;
             int col = (int)((i + left) % n) + 1;
             
-            answer[i] = Math.max(row, col);
+            answer[i] = row > col ? row : col;
         }
         
         return answer;
