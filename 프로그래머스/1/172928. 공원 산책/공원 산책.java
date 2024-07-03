@@ -34,21 +34,20 @@ class Solution {
             
             int index = map.get(direction);
             
-            int nh = answer[0] + (dh[index] * value);
-            int nw = answer[1] + (dw[index] * value);
-            
-            if(nh >= h || nh < 0 || nw >= w || nw < 0) continue;
-            
             boolean check = true;
             
-            int tempH = answer[0];
-            int tempW = answer[1];
+            int nh = answer[0];
+            int nw = answer[1];
             
             for(int j = 0; j<value; j++) {
-                tempH += dh[index];
-                tempW += dw[index];
+                nh += dh[index];
+                nw += dw[index];
                 
-                if(parks[tempH][tempW] == 'X') {
+                if(nh >= h || nh < 0 || nw >= w || nw < 0) {
+                    check = false;
+                    break;
+                }
+                if(parks[nh][nw] == 'X') {
                     check = false;
                     break;
                 }
@@ -58,6 +57,7 @@ class Solution {
                 answer[0] = nh;
                 answer[1] = nw;
             }
+            
         }
 
         return answer;
